@@ -1,0 +1,42 @@
+{
+  "build": "22e051ae",
+  "source_commit": "22e051ae820eb9c8abc53e65c8cc94bdc2e1c8e1",
+  "release_tag": "linux-22e051ae",
+  "release_title": "Continuity - Linux preview",
+  "date": "2026-10-16",
+  "application_version": "0.0.0",
+  "status": "preview",
+  "artifacts": [
+    {
+      "filename": "Continuity-22e051ae-Ubuntu26-x64.deb",
+      "platform": "Linux",
+      "target": "Ubuntu 26.04",
+      "architecture": "x64",
+      "size_bytes": 458608532,
+      "sha256": "bd78afecaeefa91b6f8351820483d54b6b6aac8451af1c5572cae0681e642f7e",
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/linux-22e051ae/Continuity-22e051ae-Ubuntu26-x64.deb"
+    },
+    {
+      "filename": "Continuity-22e051ae-Omarchy4-x64.pkg.tar.xz",
+      "platform": "Linux",
+      "target": "Omarchy 4 / Arch",
+      "architecture": "x64",
+      "size_bytes": 418628384,
+      "sha256": "47927b714f60bcbd4351530be5df2ad88b3d1070da450e06570e8efc6ad49084",
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/linux-22e051ae/Continuity-22e051ae-Omarchy4-x64.pkg.tar.xz"
+    }
+  ],
+  "verification": {
+    "source_checks_passed": 27,
+    "ubuntu_extracted_runtime_checks_passed": 6,
+    "omarchy_extracted_runtime_and_package_checks_passed": 8,
+    "omarchy_packaged_theme_pixel_checks": 6,
+    "rendering_scale": "controlled 1x",
+    "installed_icon_sizes_verified": 9,
+    "user_installation": "pending",
+    "limits": [
+      "Ubuntu temporary rendering probe blocked by host sandbox policy; no security policy changed.",
+      "Physical fractional-scale and installation acceptance remain user-controlled."
+    ]
+  }
+}

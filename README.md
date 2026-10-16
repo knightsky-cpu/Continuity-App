@@ -51,6 +51,20 @@ Download the installer for your operating system and processor from [Releases](h
 
 On an Apple Silicon Mac running macOS 15 or later, open the `.dmg`, drag **Continuity** to **Applications**, and open it from Applications. When updating, fully quit the previous copy first and replace the application when Finder asks. Keep your existing application data and database.
 
+Linux x64 previews are available for **Ubuntu 26.04** (`.deb`) and **Omarchy 4 / Arch** (`.pkg.tar.xz`). Fully quit Continuity before an upgrade. From the folder containing the downloaded package, install with the appropriate command:
+
+```sh
+# Ubuntu 26.04
+sudo apt install ./Continuity-22e051ae-Ubuntu26-x64.deb
+```
+
+```sh
+# Omarchy / Arch
+sudo pacman -U ./Continuity-22e051ae-Omarchy4-x64.pkg.tar.xz
+```
+
+Open **Continuity** from your desktop launcher after installation. These commands replace application files; retain your existing application data and Docker database. Check the release notes for automated verification and pending desktop acceptance.
+
 Packaged releases include the application and pinned agent tools. The first launch can download and prepare a managed runtime, so leave the app open and keep an internet connection available. You do not need a source checkout, a Python or Node installation, or a `.env` file.
 
 ### 2. Prepare the local database service
