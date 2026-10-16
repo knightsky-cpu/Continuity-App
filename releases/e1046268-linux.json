@@ -1,0 +1,41 @@
+{
+  "build": "e1046268",
+  "source_commit": "e1046268e7fa3847b2393bd4ec746aa01a062e9e",
+  "release_tag": "linux-e1046268",
+  "release_title": "Continuity - Linux preview",
+  "date": "2026-10-16",
+  "application_version": "0.0.0",
+  "status": "preview",
+  "artifacts": [
+    {
+      "filename": "Continuity-Ubuntu-x64.deb",
+      "platform": "Linux",
+      "target": "Ubuntu 26.04",
+      "architecture": "x64",
+      "size_bytes": 458615396,
+      "sha256": "e2f8e6f37e8c352597bef943e10aa9ff87ee5da64d033dd090fad2bb5d6541f5",
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/linux-e1046268/Continuity-Ubuntu-x64.deb"
+    },
+    {
+      "filename": "Continuity-Omarchy-x64.pkg.tar.xz",
+      "platform": "Linux",
+      "target": "Omarchy 4 / Arch",
+      "architecture": "x64",
+      "size_bytes": 418629180,
+      "sha256": "f0eee91085c0b4aba138994942d1d4a9cf27bca3ff7289644eb89c3138f2f48b",
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/linux-e1046268/Continuity-Omarchy-x64.pkg.tar.xz"
+    }
+  ],
+  "verification": {
+    "focused_source_checks_passed": 75,
+    "extracted_ubuntu_runtime_checks_passed": 6,
+    "extracted_omarchy_runtime_package_checks_passed": 8,
+    "packaged_prerequisite_check_only": "HOST_READY on both native targets",
+    "packaged_setup_layout": "passed on Omarchy at controlled 1x",
+    "user_acceptance": "pending",
+    "limits": [
+      "Missing-host-package commands are verified with fixtures; actual first-time privileged Docker provisioning remains user-controlled.",
+      "Browser/default-handler behavior is unchanged."
+    ]
+  }
+}

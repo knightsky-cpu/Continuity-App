@@ -55,12 +55,12 @@ Linux x64 previews are available for **Ubuntu 26.04** (`.deb`) and **Omarchy 4 /
 
 ```sh
 # Ubuntu 26.04
-sudo apt install ./Continuity-22e051ae-Ubuntu26-x64.deb
+sudo apt install --reinstall ./Continuity-Ubuntu-x64.deb
 ```
 
 ```sh
 # Omarchy / Arch
-sudo pacman -U ./Continuity-22e051ae-Omarchy4-x64.pkg.tar.xz
+sudo pacman -U ./Continuity-Omarchy-x64.pkg.tar.xz
 ```
 
 Open **Continuity** from your desktop launcher after installation. These commands replace application files; retain your existing application data and Docker database. Check the release notes for automated verification and pending desktop acceptance.
@@ -69,7 +69,17 @@ Packaged releases include the application and pinned agent tools. The first laun
 
 ### 2. Prepare the local database service
 
-Current desktop releases use Docker for their local database. Docker must be installed, running, and accessible to your ordinary desktop user before setup can finish.
+Current desktop releases use Docker for their local database. If Docker is missing or unavailable, choose **Install prerequisites in terminal** in the setup guide. Continuity opens your system terminal, displays progress, and installs only missing host requirements. Enter administrator passwords only in that terminal, then return to the guide and choose **Check again** when it reports readiness.
+
+On **Ubuntu**, this uses APT when Docker is missing; on **Omarchy**, it uses pacman. On **macOS**, it reuses an existing Docker Desktop installation or provisions Docker/Colima through Homebrew. If Homebrew is missing, its official installer asks for your approval. Existing working engines are left alone; custom Docker contexts may need to be started through their normal controls. The app does not install duplicate Node/Python development environments or compilers.
+
+If Linux Docker group access is required, the terminal explains its administrator-equivalent privileges and asks for consent. After granting access, sign out of the graphical desktop and sign back in, then reopen Continuity. Do not run the app as root.
+
+You can cancel the terminal worker with **Ctrl+C** and retry; completed package-manager changes are retained. Closing the guide does not interrupt an administrator package transaction. Let that transaction complete or cancel it in its terminal. An abruptly killed worker can leave a lock that needs review before retrying.
+
+Use this packaged guide for a packaged installation. The source repository's `setup.sh` is for developer/source setup and installs additional development tools.
+
+For an existing installation you manage yourself:
 
 - **macOS:** install and start [Docker Desktop](https://docs.docker.com/desktop/setup/install/mac-install/), or start your existing Colima installation. Wait until its Docker engine is running.
 - **Ubuntu:** follow the [Docker Engine installation guide](https://docs.docker.com/engine/install/ubuntu/) and its linked Linux post-installation steps for access without running Continuity as root.
