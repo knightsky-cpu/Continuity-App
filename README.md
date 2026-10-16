@@ -78,6 +78,8 @@ Gateway enrollment and the client connection to the existing tunnel infrastructu
 
 Choose a surface from the left sidebar. Scroll inside that navigation area if a surface is below the visible list. Narrow windows move navigation into a horizontal bar at the top.
 
+The in-application logo follows the selected theme: its background blends into the sidebar and its wordmark uses the theme's brand color. The neural artwork remains blue/purple. The standalone Finder/Dock icon retains the fixed release artwork.
+
 | Surface | Where to start |
 | --- | --- |
 | **Assistant** | Choose a **Provider** and **Model**, then start a conversation. **Projects** opens projects and saved conversations; **Resources** opens attachments and generated files. **Enter** sends; **Shift + Enter** adds a line. |

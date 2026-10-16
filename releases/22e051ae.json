@@ -1,0 +1,29 @@
+{
+  "build": "22e051ae",
+  "source_commit": "22e051ae820eb9c8abc53e65c8cc94bdc2e1c8e1",
+  "release_tag": "theme-22e051ae",
+  "date": "2026-10-16",
+  "application_version": "0.0.0",
+  "status": "preview",
+  "artifacts": [
+    {
+      "filename": "Continuity-22e051ae-macOS-arm64-notarized.dmg",
+      "platform": "macOS",
+      "architecture": "arm64",
+      "minimum_os_version": "15.0.0",
+      "size_bytes": 715948476,
+      "sha256": "daf7b64fab4c9f1f0c03a98bdd228a03e19bb769ecdde9a48d1129733a5d038c",
+      "notarized": true,
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/theme-22e051ae/Continuity-22e051ae-macOS-arm64-notarized.dmg"
+    }
+  ],
+  "verification": {
+    "developer_id": true,
+    "hardened_runtime": true,
+    "app_notarization": "Accepted",
+    "dmg_notarization": "Accepted",
+    "gatekeeper": true,
+    "theme_pixel_checks": 6,
+    "user_installation": "pending"
+  }
+}
