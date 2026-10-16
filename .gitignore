@@ -1,0 +1,8 @@
+/*.dmg
+/*.deb
+/*.rpm
+/*.AppImage
+/*.pkg.tar.*
+/*.zip
+/*.pending-*
+!/*.sha256

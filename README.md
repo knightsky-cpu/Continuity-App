@@ -141,7 +141,7 @@ If OpenCode requests authorization for the configured Continuity MCP server, com
 
 ### Messaging and other services
 
-For encrypted messaging, open **Messaging → Settings → Choose a handle**, enter a handle, and submit the form. Confirm messaging is on before creating or joining channels. Messaging uses your authenticated Continuity installation; it has no separate password. Existing channel membership does not by itself prove that this installation has the keys needed to read encrypted history.
+For encrypted messaging, open **Messaging → Settings → Choose a handle**, enter a handle, and choose **Enable Messaging**. If a messaging agreement is shown, read it, check its agreement box, and choose **Agree and enable Messaging**. Confirm messaging is on before creating or joining channels. Messaging uses your authenticated Continuity installation; it has no separate password. Existing channel membership does not by itself prove that this installation has the keys needed to read encrypted history.
 
 For hosted LLMs, Google Services, and Microsoft Services, open the relevant surface, select the service tab, and sign in through that service's controls. These sign-ins do not automatically connect the API providers or agent harnesses described above.
 

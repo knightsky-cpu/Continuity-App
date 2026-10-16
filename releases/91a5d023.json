@@ -1,0 +1,28 @@
+{
+  "build": "91a5d023",
+  "source_commit": "91a5d0230eed1c69df4d3110fb02ea31ef41e5cc",
+  "release_tag": "organic-91a5d023",
+  "date": "2026-10-16",
+  "application_version": "0.0.0",
+  "status": "preview",
+  "artifacts": [
+    {
+      "filename": "Continuity-91a5d023-macOS-arm64-notarized.dmg",
+      "platform": "macOS",
+      "architecture": "arm64",
+      "minimum_os_version": "15.0.0",
+      "size_bytes": 716062740,
+      "sha256": "6593decc07bd2e3c5a9ef0f76fe454fdb5482f5e67251bb4200869934a74ea2f",
+      "notarized": true,
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/organic-91a5d023/Continuity-91a5d023-macOS-arm64-notarized.dmg"
+    }
+  ],
+  "verification": {
+    "developer_id": true,
+    "hardened_runtime": true,
+    "app_notarization": "Accepted",
+    "dmg_notarization": "Accepted",
+    "gatekeeper": true,
+    "user_installation": "pending"
+  }
+}
