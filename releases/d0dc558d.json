@@ -1,0 +1,29 @@
+{
+  "build": "d0dc558d",
+  "source_commit": "d0dc558d58e4099079616a4e91a100660f7f42f5",
+  "release_tag": "macos-d0dc558d",
+  "date": "2026-10-16",
+  "application_version": "0.0.0",
+  "status": "preview",
+  "artifacts": [
+    {
+      "filename": "Continuity-macOS-arm64.dmg",
+      "platform": "macOS",
+      "architecture": "arm64",
+      "minimum_os_version": "15.0.0",
+      "size_bytes": 715689045,
+      "sha256": "2db3e1b318dff8b78d4b6631908e3708169552c6849e9df427380ff6ada0d1e3",
+      "notarized": true,
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/macos-d0dc558d/Continuity-macOS-arm64.dmg"
+    }
+  ],
+  "verification": {
+    "developer_id": true,
+    "hardened_runtime": true,
+    "app_notarization": "Accepted",
+    "dmg_notarization": "Accepted",
+    "gatekeeper": true,
+    "theme_pixel_checks": 6,
+    "user_installation": "pending"
+  }
+}
