@@ -5,7 +5,7 @@
   "release_title": "Continuity - Linux preview",
   "date": "2026-10-16",
   "application_version": "0.0.0",
-  "status": "preview",
+  "status": "superseded",
   "artifacts": [
     {
       "filename": "Continuity-Ubuntu-x64.deb",
@@ -32,10 +32,11 @@
     "extracted_omarchy_runtime_package_checks_passed": 8,
     "packaged_prerequisite_check_only": "HOST_READY on both native targets",
     "packaged_setup_layout": "passed on Omarchy at controlled 1x",
-    "user_acceptance": "pending",
+    "user_acceptance": "User confirmed operation on all four Linux devices; later cancellation-lock correction requires upgrade.",
     "limits": [
       "Missing-host-package commands are verified with fixtures; actual first-time privileged Docker provisioning remains user-controlled.",
       "Browser/default-handler behavior is unchanged."
     ]
-  }
+  },
+  "superseded_by": "linux-d0dc558d"
 }
