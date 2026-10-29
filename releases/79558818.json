@@ -1,0 +1,36 @@
+{
+  "build": "79558818",
+  "source_commit": "79558818eaf547c2a389821b4b0da48de7193667",
+  "date": "2026-10-29",
+  "application_version": "0.0.0",
+  "status": "preview",
+  "distribution": "public",
+  "readable_application_source": true,
+  "publication_note": "Existing release tags and asset names are retained for download-link compatibility. The source commit above identifies these replacement binaries.",
+  "release_tag": "macos-d0dc558d",
+  "release_title": "Continuity",
+  "artifacts": [
+    {
+      "filename": "Continuity-macOS-arm64.dmg",
+      "size_bytes": 473488886,
+      "sha256": "efc500a7c798c25f27ca2a2ba84dc192394d2c3f894f485630c29275d1c02399",
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/macos-d0dc558d/Continuity-macOS-arm64.dmg",
+      "architecture": "arm64",
+      "platform": "macOS",
+      "minimum_os_version": "15.0.0",
+      "notarized": true
+    }
+  ],
+  "verification": {
+    "signed_artifact_checks": "3/3",
+    "app_notarization": "Accepted",
+    "dmg_notarization": "Accepted",
+    "stapled_tickets": "valid",
+    "gatekeeper": "accepted",
+    "user_acceptance": "User reports installed verification targets passed."
+  },
+  "limits": [
+    "Preview release; testing does not establish every workload or first-time prerequisite installation.",
+    "Automatic updater and public conversation Add/Move/Remove between projects remain deferred."
+  ]
+}

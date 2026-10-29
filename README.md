@@ -42,6 +42,8 @@ Installers and release notes are available on the [Releases page](https://github
 
 This repository hosts public installers, release information, and branding assets. Application source development is maintained separately.
 
+Current preview build: **79558818**. See the [Mac verification and checksum record](releases/79558818.json) and [Linux verification and checksum record](releases/79558818-linux.json). Existing release download links serve these replacement installers. The installer packages contain readable application code; this repository is not the application source-development checkout.
+
 
 ## Getting started
 
@@ -63,7 +65,7 @@ sudo apt install --reinstall ./Continuity-Ubuntu-x64.deb
 sudo pacman -U ./Continuity-Omarchy-x64.pkg.tar.xz
 ```
 
-Open **Continuity** from your desktop launcher after installation. These commands replace application files; retain your existing application data and Docker database. Check the release notes for automated verification and pending desktop acceptance.
+Open **Continuity** from your desktop launcher after installation. These commands replace application files; retain your existing application data and Docker database. Check the release notes for verification results and remaining platform limits.
 
 Packaged releases include the application and pinned agent tools. The first launch can download and prepare a managed runtime, so leave the app open and keep an internet connection available. You do not need a source checkout, a Python or Node installation, or a `.env` file.
 
@@ -106,7 +108,7 @@ The in-application logo follows the selected theme: its background blends into t
 
 | Surface | Where to start |
 | --- | --- |
-| **Assistant** | Choose a **Provider** and **Model**, then start a conversation. **Projects** opens projects and saved conversations; **Resources** opens attachments and generated files. **Enter** sends; **Shift + Enter** adds a line. |
+| **Assistant** | Choose a **Provider** and **Model**, then start a conversation. **Chats** opens conversations and projects; **Resources** opens attachments and generated files. Assistant settings, including Connections, Execution and Storage, stay inside Assistant. **Enter** sends; **Shift + Enter** adds a line. |
 | **Workload** | Use its tabs to organize tasks, work lists, calendar items, and ideas. Open **Continuitas** for the Workload assistant and choose its provider, model, and context. |
 | **Messaging** | Open this surface's **Settings** tab to choose a handle. Use **Channels** to create channels, **Contacts** to manage contacts, **Requests** for invitations, and **Messages** to read conversations. These settings are separate from the main application Settings. |
 | **Shell** | Use the integrated local terminal. Commands run on your computer, so review commands before executing them. |

@@ -5,7 +5,7 @@
   "release_title": "Continuity - Linux preview",
   "date": "2026-10-16",
   "application_version": "0.0.0",
-  "status": "preview",
+  "status": "superseded",
   "artifacts": [
     {
       "filename": "Continuity-Ubuntu-x64.deb",
@@ -37,5 +37,7 @@
       "Missing-host-package commands are verified with fixtures; actual first-time privileged Docker provisioning remains user-controlled.",
       "Browser/default-handler behavior is unchanged."
     ]
-  }
+  },
+  "superseded_by": "79558818-linux.json",
+  "historical_assets_note": "These previous asset bytes were replaced after user acceptance. The retained download URLs now serve build 79558818; historical hashes below identify the removed older binaries."
 }

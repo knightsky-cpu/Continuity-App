@@ -1,0 +1,41 @@
+{
+  "build": "79558818",
+  "source_commit": "79558818eaf547c2a389821b4b0da48de7193667",
+  "date": "2026-10-29",
+  "application_version": "0.0.0",
+  "status": "preview",
+  "distribution": "public",
+  "readable_application_source": true,
+  "publication_note": "Existing release tags and asset names are retained for download-link compatibility. The source commit above identifies these replacement binaries.",
+  "release_tag": "linux-d0dc558d",
+  "release_title": "Continuity - Linux preview",
+  "artifacts": [
+    {
+      "filename": "Continuity-Ubuntu-x64.deb",
+      "size_bytes": 375516864,
+      "sha256": "43d9e41d7a1960720c9e51f7622cae4fd1d7d67cd7307d7d32b422abf6dd1839",
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/linux-d0dc558d/Continuity-Ubuntu-x64.deb",
+      "architecture": "x64",
+      "platform": "Linux",
+      "target": "Ubuntu 26.04"
+    },
+    {
+      "filename": "Continuity-Omarchy-x64.pkg.tar.xz",
+      "size_bytes": 340819484,
+      "sha256": "1a4546a77c27b7ffb12fde1ea8b11bbed5ae499be1e7023ebaa382bdcd9cacc2",
+      "download_url": "https://github.com/knightsky-cpu/Continuity-App/releases/download/linux-d0dc558d/Continuity-Omarchy-x64.pkg.tar.xz",
+      "architecture": "x64",
+      "platform": "Linux",
+      "target": "Omarchy 4 / Arch"
+    }
+  ],
+  "verification": {
+    "ubuntu_native_artifact_checks": "10/10",
+    "omarchy_native_artifact_checks": "9/9",
+    "user_acceptance": "User reports both installed applications working, smooth conversation and verification targets passed."
+  },
+  "limits": [
+    "Preview release; testing does not establish every workload or first-time prerequisite installation.",
+    "Automatic updater and public conversation Add/Move/Remove between projects remain deferred."
+  ]
+}
