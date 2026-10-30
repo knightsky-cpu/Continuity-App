@@ -1,192 +1,707 @@
-<p align="center">
-  <img src="assets/continuity-logo.png" alt="Continuity" width="320">
-</p>
-
 # Continuity
 
-**Persistent memory. Adaptive learning. Intelligence that can change without starting over.**
+**The models can change, the knowledge acquired stays with you.**
 
-Continuity is the durable cognitive layer around AI: a place for your context, decisions, evidence, and accumulated experience to live beyond any single conversation or model. It brings AI-assisted work into one desktop environment while keeping the history and understanding behind that work under your ownership.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/continuity-logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/continuity-logo-light.svg">
+    <img src="assets/continuity-logo-light.svg" alt="Continuity" width="240">
+  </picture>
+</p>
 
-The model supplies intelligence. Continuity supplies the structure that makes that intelligence useful over time.
+AI-assisted projects accumulate decisions, constraints, discoveries and failed approaches. As a conversation grows, keeping all of that context active becomes difficult. Starting a fresh conversation restores room to work, but often loses the reasoning behind earlier decisions. Explaining everything again consumes the new conversation—and the cycle repeats.
 
-## Remember the work—and why it mattered
+Continuity is being built to address that problem by keeping durable records and their relationships outside the model’s working context. Its approach distinguishes memory, experience, lessons, evidence, knowledge and reusable skills, with the aim of bringing relevant understanding forward without carrying the entire history into every request.
 
-Productive work leaves more than a transcript. It leaves constraints, decisions, discoveries, failed approaches, and reasons for choosing one path over another. Continuity's memory architecture preserves those relationships so future work can build on prior understanding.
+The desktop application provides a workspace for developing and using that approach: an Assistant, coding agents, planning tools, repositories, messaging and research services. The intelligence can change while the retained work remains.
 
-Historical significance and present relevance have distinct roles: something can remain worth remembering without needing to influence every conversation.
+**This is a beta.** The application includes working persistence, tools and recovery features; the broader memory, adaptive-learning and retrieval architecture remains under development.
 
-## Build knowledge from experience
+## Start here
 
-Adaptive learning connects experience to evidence. Continuity's learning model distinguishes observations, hypotheses, lessons, and established conclusions, retaining the provenance and conditions behind them. Later outcomes can reinforce an approach, reveal its limits, or provide grounds to revise it.
+For the shortest route to a working installation:
 
-The aim is cumulative understanding: knowing what worked, why it worked, and when that knowledge applies again.
+1. Download and install Continuity.
+2. Complete the first-launch setup and Continuity sign-in.
+3. Connect **ChatGPT or Mistral** inside Assistant.
+4. Connect **Tavily** if you want web research.
+5. Send a small test message.
+6. Connect coding agents, GitHub and other services as needed.
 
-## Choose the intelligence that fits
+You do not need to connect every service to use the application.
 
-Conversations, agent harnesses, research, and background work belong in a coherent workspace. Continuity's architecture separates those replaceable intelligence surfaces from the durable memory and orchestration layer beneath them.
+## Contents
 
-That separation gives the product its central promise: changing a model or provider should preserve the experience that made your AI useful.
+- [Install Continuity](#install-continuity)
+- [Complete first-launch setup](#complete-first-launch-setup)
+- [Connect your AI providers and research tools](#connect-your-ai-providers-and-research-tools)
+- [Connect the coding agents and MCP tools](#connect-the-coding-agents-and-mcp-tools)
+- [Find your way around](#find-your-way-around)
+- [Use Assistant](#use-assistant)
+- [Use Workload and Continuitas](#use-workload-and-continuitas)
+- [Use Repos](#use-repos)
+- [Use Messaging](#use-messaging)
+- [Use Shell, Browser and hosted services](#use-shell-browser-and-hosted-services)
+- [Configure application Settings](#configure-application-settings)
+- [Troubleshooting and beta feedback](#troubleshooting-and-beta-feedback)
 
-## Keep ownership and control
+## Install Continuity
 
-Your accumulated context and knowledge belong to you. Continuity is designed around authenticated ownership, protected credentials, traceable evidence, and explicit authority for actions affecting your resources. Remembering information, proposing an action, and having permission to execute it remain separate responsibilities.
+Download the installer and its matching `.sha256` checksum from [Releases](https://github.com/knightsky-cpu/Continuity-App/releases).
 
-## Desktop application
+| System | Installer |
+| --- | --- |
+| Apple silicon Mac, macOS 15 or later | `Continuity-macOS-arm64.dmg` |
+| Ubuntu 26.04, x64 | `Continuity-Ubuntu-x64.deb` |
+| Omarchy 4 / Arch, x64 | `Continuity-Omarchy-x64.pkg.tar.xz` |
 
-The Continuity application brings together an assistant, workload planning, agentic harnesses, repositories, shell and browser tools, provider connections, and encrypted messaging. Its shared foundation is designed to carry context and experience across these surfaces while preserving their individual access and execution boundaries.
+These releases do not include Windows or Intel Mac installers.
 
-## Downloads
+### macOS
 
-Installers and release notes are available on the [Releases page](https://github.com/knightsky-cpu/Continuity-App/releases). Each release identifies its available platforms, installation requirements, and verification status. SHA-256 checksums accompany downloadable installers.
+1. Download the DMG and checksum into the same folder.
+2. In Terminal, change to that folder and verify the download:
 
-This repository hosts public installers, release information, and branding assets. Application source development is maintained separately.
+   ```sh
+   shasum -a 256 -c Continuity-macOS-arm64.dmg.sha256
+   ```
 
-Current preview build: **79558818**. See the [Mac verification and checksum record](releases/79558818.json) and [Linux verification and checksum record](releases/79558818-linux.json). Existing release download links serve these replacement installers. The installer packages contain readable application code; this repository is not the application source-development checkout.
+3. Confirm the result says `OK`.
+4. Fully quit an existing copy of Continuity before updating.
+5. Open the DMG and drag **Continuity** into **Applications**.
+6. Replace the previous application when Finder asks.
+7. Open Continuity from **Applications**.
 
+The Mac application and DMG are signed and notarized. Keep your existing application data when replacing the application.
 
-## Getting started
+### Ubuntu
 
-### 1. Install and open Continuity
+1. Download the DEB and checksum into the same folder.
+2. Open a terminal in that folder.
+3. Verify the download:
 
-Download the installer for your operating system and processor from [Releases](https://github.com/knightsky-cpu/Continuity-App/releases). Follow that release's platform-specific installation instructions; availability is listed per release.
+   ```sh
+   sha256sum -c Continuity-Ubuntu-x64.deb.sha256
+   ```
 
-On an Apple Silicon Mac running macOS 15 or later, open the `.dmg`, drag **Continuity** to **Applications**, and open it from Applications. When updating, fully quit the previous copy first and replace the application when Finder asks. Keep your existing application data and database.
+4. Confirm the result says `OK`.
+5. Fully quit Continuity, then install:
 
-Linux x64 previews are available for **Ubuntu 26.04** (`.deb`) and **Omarchy 4 / Arch** (`.pkg.tar.xz`). Fully quit Continuity before an upgrade. From the folder containing the downloaded package, install with the appropriate command:
+   ```sh
+   sudo apt install --reinstall ./Continuity-Ubuntu-x64.deb
+   ```
 
-```sh
-# Ubuntu 26.04
-sudo apt install --reinstall ./Continuity-Ubuntu-x64.deb
-```
+6. Open Continuity from your desktop’s application launcher.
 
-```sh
-# Omarchy / Arch
-sudo pacman -U ./Continuity-Omarchy-x64.pkg.tar.xz
-```
+`--reinstall` also replaces an older beta carrying the same package version.
 
-Open **Continuity** from your desktop launcher after installation. These commands replace application files; retain your existing application data and Docker database. Check the release notes for verification results and remaining platform limits.
+### Omarchy / Arch
 
-Packaged releases include the application and pinned agent tools. The first launch can download and prepare a managed runtime, so leave the app open and keep an internet connection available. You do not need a source checkout, a Python or Node installation, or a `.env` file.
+1. Download the package and checksum into the same folder.
+2. Open a terminal in that folder.
+3. Verify the download:
 
-### 2. Prepare the local database service
+   ```sh
+   sha256sum -c Continuity-Omarchy-x64.pkg.tar.xz.sha256
+   ```
 
-Current desktop releases use Docker for their local database. If Docker is missing or unavailable, choose **Install prerequisites in terminal** in the setup guide. Continuity opens your system terminal, displays progress, and installs only missing host requirements. Enter administrator passwords only in that terminal, then return to the guide and choose **Check again** when it reports readiness.
+4. Confirm the result says `OK`.
+5. Fully quit Continuity, then install:
 
-On **Ubuntu**, this uses APT when Docker is missing; on **Omarchy**, it uses pacman. On **macOS**, it reuses an existing Docker Desktop installation or provisions Docker/Colima through Homebrew. If Homebrew is missing, its official installer asks for your approval. Existing working engines are left alone; custom Docker contexts may need to be started through their normal controls. The app does not install duplicate Node/Python development environments or compilers.
+   ```sh
+   sudo pacman -U ./Continuity-Omarchy-x64.pkg.tar.xz
+   ```
 
-If Linux Docker group access is required, the terminal explains its administrator-equivalent privileges and asks for consent. After granting access, sign out of the graphical desktop and sign back in, then reopen Continuity. Do not run the app as root.
+6. Open Continuity from your application launcher.
 
-You can cancel the terminal worker with **Ctrl+C** and retry; completed package-manager changes are retained. Closing the guide does not interrupt an administrator package transaction. Let that transaction complete or cancel it in its terminal. An abruptly killed worker can leave a lock that needs review before retrying.
+Enter administrator passwords only in your operating system’s terminal or authentication prompt. Do not run Continuity as root.
 
-Use this packaged guide for a packaged installation. The source repository's `setup.sh` is for developer/source setup and installs additional development tools.
+## Complete first-launch setup
 
-For an existing installation you manage yourself:
+Continuity includes its application runtimes and agent tools. You do not need a source checkout, a separate Python or Node installation, or a manually created `.env` file.
 
-- **macOS:** install and start [Docker Desktop](https://docs.docker.com/desktop/setup/install/mac-install/), or start your existing Colima installation. Wait until its Docker engine is running.
-- **Ubuntu:** follow the [Docker Engine installation guide](https://docs.docker.com/engine/install/ubuntu/) and its linked Linux post-installation steps for access without running Continuity as root.
-- **Omarchy / Arch:** follow the distribution's [Docker setup instructions](https://wiki.archlinux.org/title/Docker), start its Docker service, and configure access for your desktop user. If you changed group membership, sign out of the graphical desktop and sign back in before opening Continuity.
+The initial setup can download and prepare additional runtime components. Keep the application open and maintain an internet connection while setup runs.
 
-On Linux, your desktop's Secret Service/keyring must also be available and unlocked so Continuity can protect saved credentials. Package dependencies supply the supporting components; an active graphical keyring session is still required.
+### 1. Prepare the local database service
 
-If the setup window says **Database service needs attention**, start Docker and select **Check again**. Continuity prepares its database and configuration through the guide. Do not delete database files or Docker volumes to work around a setup error.
+Continuity uses a local PostgreSQL database managed through Docker.
 
-### 3. Sign in to Continuity
+If the setup guide reports missing prerequisites:
 
-1. In **Set up Continuity**, choose **Continue setup** when offered.
-2. When Gateway sign-in is required, complete the browser sign-in using an account approved for the Continuity service and approve the installation request. Contact the release administrator if your account has not been granted access.
-3. Return to Continuity and let enrollment finish. If you closed the authorization page, choose **Continue setup** to resume.
-4. When the main application opens, select **Settings** and check **Service status**. This reports the Gateway, local MCP backend, and application relay readiness.
+1. Choose **Install prerequisites in terminal**.
+2. Read the instructions in the terminal that opens.
+3. Approve the required installation steps and enter your administrator password there.
+4. Let the terminal operation finish.
+5. Return to Continuity and choose **Check again**.
 
-Gateway enrollment and the client connection to the existing tunnel infrastructure are handled by the application. Tester installations do not require Cloudflare configuration, a manually entered workspace ID, or private service configuration files. Gateway sign-in is separate from connecting ChatGPT, Mistral, GitHub, or other services.
+The guide uses the platform’s supported installation route and preserves an existing working Docker installation.
+
+On Linux, granting Docker access may require signing out of the graphical desktop and signing back in. Opening another terminal is not a substitute for that desktop sign-out.
+
+On Linux, also ensure your desktop keyring or Secret Service is available and unlocked. Continuity uses protected system storage for saved credentials.
+
+If Docker is already installed but stopped, start your existing Docker environment and choose **Check again**.
+
+### 2. Enroll the installation
+
+1. Choose **Continue setup** when offered.
+2. Complete the Continuity sign-in in your external browser.
+3. Approve the installation request.
+4. Return to Continuity and allow setup to finish.
+
+Beta access may require an approved account. Contact the beta administrator if access is refused.
+
+The application supplies its service configuration. You should not need to enter a workspace ID, configure a tunnel or invent an MCP server address.
+
+### 3. Update existing saved data when offered
+
+If setup shows **Update saved data**, choose it and let maintenance finish. This brings an existing installation’s database up to the version required by the application.
+
+Keep the existing database and application data. Deleting them is not an update procedure.
+
+### 4. Check readiness
+
+Open application **Settings → Service status** after the main window appears.
+
+This reports the application’s service connections. Continuity sign-in establishes the installation; it does **not** automatically sign you into ChatGPT, Mistral, GitHub or other providers.
+
+## Connect your AI providers and research tools
+
+An **API key** is a credential that allows an application to use a provider’s service on your behalf. Paste it only into the intended connection dialog—not into an Assistant message.
+
+The connections below serve different purposes:
+
+| Connection | Where to manage it |
+| --- | --- |
+| Assistant and Continuitas ChatGPT connection | **Assistant → Assistant Settings → Connections** |
+| Assistant and Continuitas Mistral connection | **Assistant → Assistant Settings → Connections** |
+| Coding-agent ChatGPT connection | **Agentic Harnesses → Codex → Settings** |
+| Background ChatGPT connection | Application **Settings → Background learning** |
+| Tavily research key | Application **Settings → Background learning** |
+| OpenCode model providers | Inside an OpenCode session using `/connect` |
+| GitHub repository access | **Repos → Connect GitHub** |
+
+**Assistant, Codex and background work have separate ChatGPT sign-in controls.** You may use the same account, but connecting one does not establish the others.
+
+### ChatGPT for Assistant and Continuitas
+
+1. Open **Assistant**.
+2. Open **Assistant Settings**, using the settings control above the conversation or the shortcut at the bottom of the Chats panel.
+3. Select **Connections**.
+4. Select **ChatGPT** in the composer if another provider is selected.
+5. Choose **Sign in with ChatGPT**.
+6. Complete the browser sign-in and return to Continuity.
+7. Close Settings and select an available model in the composer.
+
+Use **Refresh available models** if the model list needs refreshing.
+
+This connection serves Assistant and the Workload assistant, Continuitas. Access and usage allowances depend on your provider account. See [OpenAI’s Codex account and plan guidance](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan).
+
+### Mistral: create a free account and connect it
+
+1. Open [Mistral Studio](https://console.mistral.ai/) and create an account.
+2. Complete the account-verification steps.
+3. Check that your organization is using **Free mode** if you want to begin without paid usage. Mistral documents Free mode as available without a credit card, with usage and rate limits.
+4. Open **API Keys** in Studio. If it is not in the sidebar, open your user profile menu and select **API Keys**.
+5. Choose **Create new key** for the **Studio** API, rather than a Vibe key.
+6. Give it a recognizable name, such as `Continuity`, select an expiration, and leave **Connector access scope** at **Shared connectors only** unless you specifically need your private Mistral connectors.
+7. Create the key and copy it immediately. The full value is shown only once.
+8. In Continuity, open **Assistant → Assistant Settings → Connections** and select **Mistral** in the composer.
+9. Choose **Connect**, paste the key into **Studio API key**, and confirm.
+10. Close Settings and choose an available Mistral model.
+
+You can also reach Studio through **Open Mistral Studio** in the connection dialog.
+
+There is no special “free key”: keys use the organization’s current plan. Check the provider dashboard before enabling paid usage. [Official account setup](https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key) and [API-key guidance](https://docs.mistral.ai/admin/identity-access/api-keys).
+
+**Replace key** changes the saved credential. **Disconnect** removes it. This connection is shared with Continuitas and supported Mistral background work; OpenCode manages its own provider credentials.
+
+### Tavily: enable web research on the free tier
+
+Tavily supplies web search and research tools. It is separate from the model provider.
+
+1. Open [Tavily](https://app.tavily.com/) and create an account.
+2. Start with the free **Researcher** plan. Tavily currently lists **1,000 API credits per month without a credit card**.
+3. Find **API keys** in the dashboard.
+4. Copy an existing key, or use **+** to create a named key. If shown, choose a **Development Key** for beta testing and set its monthly limit within your account’s free allowance.
+5. In Continuity, open application **Settings → Background learning**.
+6. Choose **Tavily web tools · Connect**.
+7. Paste the key into **API key**, then choose **Connect**.
+8. Confirm that the status reports **Tavily connected · Settings key**.
+9. Open **Tavily usage & Research → Usage** to check your allowance.
+
+[Current Tavily plans](https://www.tavily.com/pricing) and [key-creation instructions](https://help.tavily.com/articles/9170796666-how-can-i-create-an-api-key).
+
+One saved connection serves Assistant, Continuitas and authorized background web tools. It does not automatically start research.
+
+Different operations consume different amounts of credit; 1,000 credits does not necessarily mean 1,000 research tasks. Review the dashboard’s allowance before enabling paid options.
+
+Use **Replace key** to change credentials or **Disconnect Tavily** to remove the connection. The in-app key dialog is the normal setup route; ordinary tester installations do not need **Use environment key**.
+
+### Select background intelligence
+
+Background work is configured separately from the model beside your Assistant draft.
+
+1. Open application **Settings → Background learning**.
+2. Choose **Background provider**.
+3. Establish its connection:
+   - **ChatGPT:** choose **Manage ChatGPT connection** here and sign in.
+   - **Mistral:** connect it inside Assistant first.
+   - **OpenCode:** complete its provider setup in the OpenCode harness.
+4. Choose **Refresh models**.
+5. Select an available background model.
+6. Choose **Use for background work**.
+
+The current ChatGPT background option uses Luna. No model is selected automatically.
+
+Background work runs while Continuity is open, and saved progress can resume when it reopens. Provider allowances still apply; the same account may share usage limits across activities.
+
+## Connect the coding agents and MCP tools
+
+The **Agentic Harnesses** surface provides embedded Codex and OpenCode terminals. These are coding-agent workspaces, separate from the Assistant conversation.
+
+### Codex
+
+![Codex inside Continuity Agentic Harnesses, prepared website screenshot.](assets/screenshots/harnesses.png)
+
+1. Open **Agentic Harnesses → Codex → Settings**.
+2. Choose **Sign in with ChatGPT** and complete the browser flow.
+3. Alternatively, choose **Sign in with device code**, open the offered sign-in page and follow its instructions privately.
+4. Confirm that the account is connected.
+5. Choose an **Existing project**, or enter a name under **New project directory** and choose **Create project**.
+6. Choose **New session**.
+7. Type your request into the embedded terminal.
+
+**Resume session** returns to previous work. **Stop session** stops the active terminal session. Stop the session before changing its project.
+
+The project here is a working directory for the coding agent. It is distinct from an Assistant project used to organize conversations.
+
+### Codex Apps
+
+Connected Codex Apps have their own controls inside **Codex → Settings**:
+
+- **Check Apps** reads the current connection state.
+- **Refresh Apps connection** attempts to recover that connection.
+- **Sign in to Codex Apps** starts the offered authorization flow.
+
+A successful model sign-in does not prove every optional app is connected. Complete the requested app authorization before asking the agent to use it.
+
+### OpenCode
+
+![OpenCode inside Continuity Agentic Harnesses, prepared website screenshot.](assets/screenshots/opencode.png)
+
+1. Open **Agentic Harnesses → OpenCode → Settings**.
+2. Confirm the runtime reports ready.
+3. Select or create a project.
+4. Choose **New session**.
+5. Inside the embedded terminal, enter `/connect`.
+6. Select a provider and complete its sign-in or API-key prompts.
+7. Enter `/models` and choose an available model.
+8. Type your task.
+
+Use **Resume session** to return to previous work and **Stop session** before changing projects.
+
+OpenCode’s provider credentials are separate from Assistant’s connections. Its available authentication methods and models depend on the selected provider. See [OpenCode’s provider instructions](https://docs.opencode.ai/docs/providers/).
+
+### Continuity MCP tools
+
+**MCP—Model Context Protocol—is how an agent accesses tools supplied by another service.** Connecting a model supplies the intelligence; connecting MCP supplies additional capabilities.
+
+Continuity prepares its bundled harness configurations. A normal installation should not require manually adding server URLs or copying private configuration.
+
+To check the connection:
+
+1. Complete Continuity’s first-launch enrollment.
+2. Check application **Settings → Service status**.
+3. Start the desired harness session.
+4. In **Codex**, enter `/mcp` to inspect available servers and tools.
+5. In **OpenCode**, complete any authentication prompt for the configured Continuity MCP server. Follow the browser sign-in and approval, then return to the session.
+6. Ask for a small read-only check, such as listing the available Workload records.
+
+OpenCode supports browser authorization for MCP servers that require it. See its [MCP authentication guidance](https://opencode.ai/docs/mcp-servers/).
+
+If tools remain unavailable, stop the harness session, confirm service readiness and start it again. Report the displayed server or authentication error if it persists. Do not add a second server with a guessed address or publish configuration files containing credentials.
+
+Assistant’s built-in tools do not require a separate MCP setup step. Use `/tools` inside Assistant to inspect what is currently available.
 
 ## Find your way around
 
-Choose a surface from the left sidebar. Scroll inside that navigation area if a surface is below the visible list. Narrow windows move navigation into a horizontal bar at the top.
+A **surface** is one of the work areas listed in the main navigation: Assistant, Workload, Messaging and so on.
 
-The in-application logo follows the selected theme: its background blends into the sidebar and its wordmark uses the theme's brand color. The neural artwork remains blue/purple. The standalone Finder/Dock icon retains the fixed release artwork.
+- Select a surface name to open it.
+- Scroll the navigation if an item is below the visible area.
+- Narrow windows arrange navigation differently to preserve working space.
+- Underlined or borderless interactive text works like a button.
+- A chevron expands or collapses a group.
+- `…` opens contextual actions.
+- Hover over an icon for its tooltip.
+- Use **Tab** to move between controls and **Enter** or **Space** to activate them.
+- Many dialogs close with **Escape** or their close control.
 
-| Surface | Where to start |
+Read nearby status text when a control is disabled: it may require a connection, selected conversation, project or completed operation.
+
+## Use Assistant
+
+![Continuity Assistant, prepared website screenshot.](assets/screenshots/assistant.png)
+
+### Start and organize conversations
+
+1. Open **Assistant** and select a connected provider and model.
+2. Use the outline **New conversation** icon to begin.
+3. Type into the composer.
+4. Press **Enter** to send; **Shift + Enter** inserts a new line.
+
+Open **Chats** to reveal conversations and projects.
+
+| Control | What it does |
 | --- | --- |
-| **Assistant** | Choose a **Provider** and **Model**, then start a conversation. **Chats** opens conversations and projects; **Resources** opens attachments and generated files. Assistant settings, including Connections, Execution and Storage, stay inside Assistant. **Enter** sends; **Shift + Enter** adds a line. |
-| **Workload** | Use its tabs to organize tasks, work lists, calendar items, and ideas. Open **Continuitas** for the Workload assistant and choose its provider, model, and context. |
-| **Messaging** | Open this surface's **Settings** tab to choose a handle. Use **Channels** to create channels, **Contacts** to manage contacts, **Requests** for invitations, and **Messages** to read conversations. These settings are separate from the main application Settings. |
-| **Shell** | Use the integrated local terminal. Commands run on your computer, so review commands before executing them. |
-| **Repos** | Choose **Connect GitHub**, then select a repository. Use **Overview**, **Files**, **Diff**, **Changes**, and **Pull Requests** to move between repository views. Review confirmation prompts for operations that change files or Git history. |
-| **Agentic Harnesses** | Choose **Codex** or **OpenCode**. Each has its own **Settings** panel and project/session controls. This is where you connect the ChatGPT account used by Codex. |
-| **Browser** | Open a tab with **+**, enter an address, and use the navigation controls. **Open in external browser** moves the current page to your system browser. |
-| **LLMs** | Choose a hosted chat provider from the tabs and sign in within that provider's page. A hosted website session is separate from Assistant's API/account connection. |
-| **Google Services** | Select a service tab and sign in to that service. Use **Open in external browser** when you want the page outside Continuity. |
-| **Microsoft Services** | Select a service tab and complete its account sign-in. These embedded sessions are independent of the main Continuity sign-in. |
-| **Settings** | Check backend health, choose background intelligence, connect Tavily, change the theme, and manage your profile and notification preferences. |
+| **New conversation** | Starts another conversation. |
+| **Search conversations** | Searches conversation names. |
+| **Conversations** | Expands or collapses ordinary conversation history. |
+| **Show More** | Reveals up to ten additional conversations each time. |
+| **Projects** | Expands or collapses project organization. |
+| **New project** | Reveals the naming form; **Create** saves it and **Cancel** closes it. |
+| A conversation or project name | Opens that item. |
+| Available `…` actions | Opens item-specific actions, including renaming. |
 
-## Connect your accounts
+Public controls for adding, moving or removing existing conversations between projects are deferred in this beta.
 
-Connect the services you intend to use. ChatGPT and Mistral are alternative Assistant providers; Tavily supplies web research tools. GitHub is needed for connected repository browsing. You do not need every provider account to begin.
+### Composer controls
 
-### ChatGPT / Codex
+| Control | What it does |
+| --- | --- |
+| **+** | Opens attachment selection for supported inputs. |
+| Provider name | Chooses ChatGPT or Mistral. |
+| Model name | Chooses an available model for that provider. |
+| Approval text | Opens the current conversation’s permission controls. |
+| **File access** | Manages files and folders the Assistant may access. |
+| Send arrow | Submits the current request. |
+| **Stop** | Requests that active work stop; it does not undo completed actions. |
 
-1. Open **Agentic Harnesses → Codex → Settings**.
-2. Choose **Sign in with ChatGPT** and complete authentication in the browser. If you choose **Sign in with device code**, follow the displayed code and verification-page instructions privately.
-3. Return to the app and confirm the account is connected.
-4. Open **Assistant**, select **ChatGPT** under **Provider**, and choose an available **Model**. Use the refresh control if the model list has not loaded.
+Selecting a different provider or model does not connect an account or grant new file permissions.
 
-Continuity reuses this connection for its supported ChatGPT-powered surfaces. Provider access, usage allowance, and available models depend on your account. Signing into the ChatGPT website under **LLMs** alone does not connect Codex or Assistant.
+### Give Assistant access to files
 
-### Mistral: create an account and connect an API key
+For a local file or folder:
 
-1. Open **Assistant**, choose **Mistral** in the **Provider** menu, and select **Connect** beside its connection status.
-2. In **Connect Mistral**, choose **Open Mistral Studio**. In your browser, create a Mistral account or sign in at [Mistral Studio](https://console.mistral.ai/).
-3. Mistral currently enables **Free mode** without a credit card, subject to usage and rate limits. Complete any account-verification prompts shown by Mistral.
-4. In Studio, open **API Keys** and choose **Create new key**. Give it a recognizable name, such as `Continuity`, select an expiration, and review any access-scope options. Create the key and copy its full value immediately; Mistral displays it only once. Save it in your password manager if you need to retain a copy.
-5. Return to Continuity's **Connect Mistral** dialog. Paste the key into **Studio API key**, then choose **Connect**. Paste the key value itself, without quotation marks or an `Authorization` prefix.
-6. Confirm **Mistral connected**, then choose an available **Model**. Use the refresh control if necessary.
+1. Open **File access**.
+2. Choose **Read only** or **Read and write**.
+3. Choose **Choose file** or **Choose folder**.
+4. Select the location in the native file picker.
+5. Confirm it appears under **Available in this conversation**.
+6. Describe what you want Assistant to do with it.
 
-The same saved connection is available to Assistant, Continuitas, and supported background work. **Replace key** updates the connection; **Disconnect** removes its saved key. Provider model availability, limits, and privacy settings apply. [Official Mistral account/key guide](https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key).
+Use **Read only** when the task only requires inspection.
 
-### Tavily: create an account and connect web tools
+Saved locations appear under **Saved access**. Choose **Use in this chat** to attach one to another conversation. After restarting Continuity, attach a saved location again before using it.
 
-1. Open **Settings → Background learning** and select **Tavily web tools · Connect**.
-2. In **Connect Tavily web tools**, select **Open Tavily dashboard**. Create an account or sign in at the [Tavily dashboard](https://app.tavily.com/).
-3. Tavily currently offers **1,000 free API credits per month without a credit card**. Confirm the allowance shown in your dashboard; provider plans can change.
-4. Find **API keys** in the dashboard. Use the copy control for an existing key, or select **+** to create a named key. If creating one, review its type and monthly usage limit, then copy the complete key value.
-5. Return to Continuity's dialog, paste the value into **API key**, and choose **Connect**. Do not include quotation marks or a command around the key.
-6. Confirm **Tavily connected · Settings key**. **Tavily usage & Research → Usage** checks the connected account's allowance. One in-app connection serves Assistant, Continuitas, and authorized background web tools.
+**Revoke access** removes that grant across conversations. It leaves the original files, past messages and saved outputs in place.
 
-Use **Tavily web tools · Replace key** to change the key and **Disconnect Tavily** to remove it. Separate named keys can make revocation and administration easier across installations; do not assume that creating another key provides another account allowance. Some Tavily services require a paid plan. [Official Tavily key guide](https://help.tavily.com/articles/9170796666-how-can-i-create-an-api-key) and [current plans](https://www.tavily.com/pricing).
+A file grant identifies accessible locations. Approval settings separately govern which actions may be performed.
 
-### GitHub
+### Choose an approval mode
 
-Open **Repos → Connect GitHub**. Complete the **The Repo Bridge** authorization in the browser, entering the device code shown by Continuity if requested. Review the requested access, approve it, and return to Repos. When the connection completes, select a repository from the repository panel. Your GitHub account's repository permissions still apply.
+New conversations begin with **Ask for approval**.
 
-If a saved connection cannot be read, use **Retry saved connection** when offered. Use **Connect GitHub** to authorize again when needed; do not remove application data to repair an account connection.
+| Mode | Behavior |
+| --- | --- |
+| **Ask for approval** | Allows enabled reads and asks before changes. |
+| **Approve for me** | Allows routine local changes; asks before publication, destructive actions or dependency acquisition. |
+| **Full access** | Allows enabled actions without routine approval prompts, within existing access and execution limits. |
 
-### OpenCode and Continuity MCP
+Review the enabled capabilities and choose **Save permissions** to apply changes. Disabling a capability blocks it in every mode.
 
-Open **Agentic Harnesses → OpenCode → Settings**, select a project, and choose **New session** or **Resume session**. Complete the provider connection inside the OpenCode terminal when prompted. OpenCode's `/connect` command opens provider selection, and `/models` selects a model. These harness credentials are separate from the Mistral connection dialog in Assistant. See [OpenCode's provider guide](https://opencode.ai/docs/providers/).
+These are Assistant permissions. They do not replace Codex, OpenCode or Shell controls.
 
-If OpenCode requests authorization for the configured Continuity MCP server, complete its browser sign-in and approval, then return to the terminal and confirm the MCP connection. The packaged application supplies the server configuration; do not invent a server URL or enter private deployment settings.
+### Inspect tools, skills and activity
 
-### Messaging and other services
+- Type `/` to see command suggestions.
+- Use `/tools` to inspect available tools.
+- Use `/skills` to explore workflow choices and management.
+- Use `/skills list` to inspect stored skills.
+- Choose a suggested `/use` command to apply an available workflow to a task.
 
-For encrypted messaging, open **Messaging → Settings → Choose a handle**, enter a handle, and choose **Enable Messaging**. If a messaging agreement is shown, read it, check its agreement box, and choose **Agree and enable Messaging**. Confirm messaging is on before creating or joining channels. Messaging uses your authenticated Continuity installation; it has no separate password. Existing channel membership does not by itself prove that this installation has the keys needed to read encrypted history.
+Availability depends on the current account, permissions and required services. Selecting a skill does not grant additional authority.
 
-For hosted LLMs, Google Services, and Microsoft Services, open the relevant surface, select the service tab, and sign in through that service's controls. These sign-ins do not automatically connect the API providers or agent harnesses described above.
+Expand the **inline Activity** group beside a response to inspect that request’s recorded actions. Open **Activity** above the conversation for the separate history grouped by request. Refresh or load more when offered.
 
-### Background intelligence
+### Find and save results
 
-In **Settings → Background learning**, choose **Background provider**, select **Background model**, and choose **Use for background work**. Use **Refresh models** after connecting a provider. This choice is independent of Assistant's model selection; switching a chat model does not select a background model. Background work runs while Continuity is open, and configured provider allowances still apply.
+Open **Resources**:
 
-## Connection help
+- **Attachments** shows inputs associated with the conversation.
+- **Files** shows saved outputs.
+- **Refresh** reloads the list.
+- Select an output to inspect its available preview and actions.
+- Use the offered save/export action to choose a destination through the native dialog.
+- Use ZIP export when offered for a group of outputs.
 
-- **A key is rejected:** recopy the full key from the correct provider dashboard, check expiration/revocation and account allowance, then retry the application's Connect control.
-- **A usage or rate limit appears:** review that provider's dashboard and wait for its limit to reset or select an appropriate plan. Repeatedly creating keys does not necessarily change account-wide limits.
-- **Protected storage is unavailable:** unlock your operating-system keychain/keyring and reopen Continuity. Do not work around this by saving keys in plain text.
-- **A browser sign-in did not finish:** keep the application open while authorizing, then return to the app. Retry the offered sign-in control rather than deleting enrollment or database state.
-- **Backend health needs attention:** confirm Docker is running and accessible to your signed-in desktop user, then retry the setup check or reopen the application. Report the displayed error if it persists.
+A preview may show only part of a large file. Export preserves the retained original.
 
-Enter passwords and API keys only into the intended application or provider controls. Never include them in chats, issue reports, screenshots, terminal commands, or Git commits. Mistral and Tavily keys entered in Continuity's connection dialogs use protected operating-system storage. Agent harnesses manage their own provider credentials. An account connected in one surface is not automatically connected in every embedded website or harness.
+### Assistant Settings
 
----
+Assistant Settings stays inside the Assistant surface.
+
+| Section | Purpose |
+| --- | --- |
+| **General** | Describes the current interface and scope. |
+| **Connections** | Manages Assistant/Continuitas accounts, model refresh and reconnect. |
+| **File access** | Opens the file and folder access manager. |
+| **Permissions** | Opens approval-mode and capability review. |
+| **Execution** | Configures optional isolated command execution and reviews unresolved commands. |
+| **Storage** | Shows retained/reserved payload usage and edits storage allowances. |
+
+For isolated execution, select an installed, running container runtime, use **Check availability**, and follow **Prepare image** review when needed. Runtime setup alone does not approve a command.
+
+In Storage, **Refresh** reads current values and **Save changes** applies allowance edits. Lowering an allowance preserves existing files but can prevent new storage. Turning allowances off preserves accounting, disk protection and other safety limits.
+
+### Pending responses and unknown outcomes
+
+Use **Reconnect Chat** when the connection is lost. It checks recovery without automatically resending your message.
+
+If an operation’s outcome is unknown, the application may pause new work to prevent duplication. Review the offered recovery controls.
+
+**Assistant Settings → Execution → Review unresolved commands** can expose controlled acknowledgement where supported. Acknowledgement keeps the original result marked unknown; it does not repeat the command or claim success.
+
+Use **Cancel pending response** only when you intend to cancel the pending response. Cancellation does not reverse effects already performed.
+
+## Use Workload and Continuitas
+
+![Workload agenda and Continuitas, prepared website screenshot.](assets/screenshots/workload.png)
+
+Workload organizes plans and commitments.
+
+| Section | What to do |
+| --- | --- |
+| **Today** | Review today’s schedule and approaching deadlines; **Refresh** reloads them. |
+| **Tasks** | Capture work, edit its status and priority, and inspect active/history views. |
+| **Containers** | Create areas for related work, then add standalone tasks or Work Lists. |
+| **Calendar** | Reserve time with events; switch Month, Week or Day and navigate with arrows or **Today**. |
+| **Ideas** | Save developing thoughts and turn them into reviewed Tasks or Work Lists. |
+| **Continuitas** | Ask the Workload assistant to inspect or manage supported Workload records. |
+
+A task deadline and a calendar event are different: one marks when work is due; the other reserves time.
+
+### Create and edit work
+
+- **Quick capture** or **Capture something** opens task entry.
+- **+ Container**, **+ Work List**, **+ Task**, **+ Event** and **+ Idea** start the corresponding forms.
+- **Save** records the form; **Cancel** closes an unsaved edit.
+- Active/history or archived filters reveal retained records.
+- **Refresh saved work** rereads current records when a result needs checking.
+
+For recurring events, choose the frequency and number of events, then review the proposed dates before accepting them. Check the selected time zone.
+
+When converting an Idea into work, review the destination and proposed tasks before **Accept changes**. The original Idea remains.
+
+The Workload calendar does not automatically synchronize with the Google or Microsoft calendar pages elsewhere in the application.
+
+### Use Continuitas
+
+1. Open **Continuitas** from Workload.
+2. Select a connected provider and model.
+3. Choose **Context**:
+   - **None:** do not include a Workload selection.
+   - **All Workload:** use the supported broader Workload context.
+   - **Current work view:** use the current selection/view.
+4. Describe the task.
+5. Review proposed changes and confirmations before accepting.
+
+For example:
+
+> Create a Work List for preparing our beta test, with tasks for installation, account connections and feedback collection. Show me the proposal first.
+
+**Expand** gives the panel more room; **Collapse** closes it back down. **Resources** contains its attachments and outputs. **New conversation** begins another Continuitas conversation.
+
+## Use Repos
+
+![Repos overview and Git controls, prepared website screenshot.](assets/screenshots/repositories.png)
+
+### Connect GitHub
+
+1. Open **Repos → Connect GitHub**.
+2. Complete **The Repo Bridge** authorization in your browser.
+3. Enter the displayed device code if requested.
+4. Review and approve the requested access.
+5. Return to Continuity and select a repository.
+
+**Retry saved connection** rereads an existing saved connection. **Disconnect** removes that connection from the application.
+
+GitHub repository permissions still apply.
+
+### Repository controls
+
+| Area or control | Purpose |
+| --- | --- |
+| Repository panel | Selects a connected repository. |
+| **Overview** | Shows repository information and available local actions. |
+| **Files** | Browses the selected source and opens files. |
+| **Diff** | Reviews changes between file versions. |
+| **Changes** | Inspects local working changes and available staging/commit actions. |
+| **Pull Requests** | Lists and reviews pull requests; offers creation where supported. |
+| **History** | Browses commits, branches and selected-file history. |
+| **Clone into Continuity Home** | Creates the application-managed local clone. |
+| **Open in Agent / Open Agent / Shell** | Opens the local repository in the corresponding working environment. |
+
+**Location** distinguishes local-clone state from GitHub browsing. Browsing a remote branch is different from switching the local working branch.
+
+For local work, review the intended files, stage the appropriate changes, enter a commit message and choose **Commit staged changes**. **Push current branch** publishes local commits.
+
+Branch creation/switching, Fetch, Pull, Discard and Reset have different effects. Read their previews and confirmation dialogs. Discard and hard reset can remove local work; they are not connection-repair controls.
+
+Save or discard an editor draft before changing the source or branch being viewed.
+
+## Use Messaging
+
+![Messaging rooms and conversation area, prepared website screenshot.](assets/screenshots/messaging.png)
+
+Messaging is separate from Assistant chat.
+
+### Enable it
+
+1. Open **Messaging → Settings**.
+2. Choose a handle.
+3. Select **Enable Messaging**.
+4. Read and accept the messaging agreement if shown.
+5. Confirm that Messaging is on.
+
+### Navigate messages and channels
+
+| Control | Purpose |
+| --- | --- |
+| **Messages** | Opens conversations and the selected channel’s messages. |
+| **Rooms** | Shows available channels; its toggle expands or hides the list. |
+| **Channels / Create channel** | Creates and manages channels. |
+| **Contacts / Add contact** | Finds and adds another user by handle. |
+| **Invite people** | Invites someone to the selected private channel. |
+| **Requests** | Reviews incoming invitations and sent requests. |
+| **Members** | Shows membership for the selected channel. |
+| **Older / Newer** | Moves through available message history. |
+| **Send** | Sends the composed message to the selected channel. |
+
+Messages and files are encrypted, but recipients can retain or share received copies. Keep installation data and keys intact; signing into an account alone does not guarantee that a new installation can decrypt old messages.
+
+## Use Shell, Browser and hosted services
+
+### Shell
+
+![Continuity integrated Shell, prepared website screenshot.](assets/screenshots/shell.png)
+
+Shell is a local terminal. Click inside it and enter commands as you would in your normal terminal.
+
+Commands affect your computer under your operating-system account. Assistant approval settings do not govern commands you type directly into Shell.
+
+### Browser
+
+![Continuity tabbed Browser, prepared website screenshot.](assets/screenshots/browser.png)
+
+- **+** opens a tab.
+- The address field accepts a website address or Google search.
+- **Back**, **Forward** and **Reload** work like ordinary browser controls.
+- **Home** returns to Google.
+- **Open in external browser** opens the current page in your default browser.
+- A tab’s close control closes that tab.
+
+### LLMs
+
+![Hosted AI services in Continuity, prepared website screenshot.](assets/screenshots/llms.png)
+
+Choose a hosted provider tab and sign into its website.
+
+These are hosted web experiences. Signing into a provider here does not connect its API account to Assistant or its credentials to a coding agent.
+
+### Google Services
+
+Choose Gmail, Docs, Drive, NotebookLM, Forms, Sheets or Calendar, then sign in through Google’s controls.
+
+### Microsoft Services
+
+Choose Outlook, Calendar, OneDrive, Word, Excel, PowerPoint or OneNote, then sign in through Microsoft’s controls.
+
+Use **Open in external browser** when you need the service outside Continuity.
+
+A website sign-in does not automatically grant Assistant access to its contents. Connected tools and their permissions are separate.
+
+## Configure application Settings
+
+![Application Settings and background intelligence, prepared website screenshot.](assets/screenshots/settings.png)
+
+Application **Settings** manages the overall installation. Assistant-specific controls remain inside Assistant.
+
+| Section or control | Purpose |
+| --- | --- |
+| **Service status** | Checks application/backend connection readiness. |
+| **Assistant settings / Execution setup** | Opens the corresponding section inside Assistant. |
+| **Background learning** | Selects background intelligence and manages its connection. |
+| **Tavily usage & Research** | Opens usage and supported research-task controls. |
+| **Theme** | Chooses Light, Dark, Cyberpunk, E Ink, Ember Graphite or Wisteria. |
+| **Workspace ID** | Reveals the installation’s workspace locator when requested. |
+| **Your profile** | Changes sidebar initials and display name; use **Save profile**. |
+| Notification preferences | Verifies an email address and configures supported reminders. |
+
+Themes affect Continuity’s interface. Embedded websites and terminal applications retain their own appearance.
+
+### Email reminders
+
+1. Enter your email address.
+2. Choose **Send verification code**.
+3. Enter the six-digit code and choose **Verify email**.
+4. Enable the offered calendar/deadline reminders.
+5. Set the lead time, deadline reminder time and time zone.
+6. Choose **Save email preferences**.
+
+Email remains off until enabled. **Check reminder sync** reads synchronization status. **Cancel notifications** and **Remove verified email** control the corresponding saved settings.
+
+### Tavily usage and research tasks
+
+**Usage** reads allowance information. **Logs** requires a suitable paid Tavily plan. **Check existing task** checks a previously created research task.
+
+Remote research may continue and consume provider credits after a local Stop or Disconnect. Check the task’s recorded state rather than assuming that closing its panel cancelled it.
+
+## Troubleshooting and beta feedback
+
+| Symptom | What to check |
+| --- | --- |
+| Setup reports database/service trouble | Start the existing Docker environment, then choose **Check again**. |
+| Setup offers **Update saved data** | Run that maintenance action and allow it to finish. |
+| Assistant has no models | Confirm the selected provider is connected, then refresh models in Assistant Settings. |
+| Codex works but Assistant does not | Connect ChatGPT separately inside Assistant Settings. |
+| Background work has no provider | Configure it independently in application Settings and choose **Use for background work**. |
+| Mistral or Tavily rejects a key | Check that the key is complete, active, unexpired and from the correct provider. Replace it through the connection dialog. |
+| A provider reports a usage limit | Check that provider’s dashboard and reset time. Creating another key does not create another account allowance. |
+| Saved credentials cannot be read | Unlock the operating-system keychain/keyring and retry the offered connection control. |
+| A file is unavailable after restart | Open File access and choose **Use in this chat** for the saved location. |
+| Send is paused by a pending response | Use the offered status/reconnect controls; inspect unknown outcomes before considering a new request. |
+| MCP tools are missing | Check application service status, complete requested authorization, then restart the harness session. |
+| A repository action is uncertain | Inspect current repository state before requesting it again. |
+
+Do not delete application data, databases or credential stores as a general troubleshooting step.
+
+When reporting a beta issue, include:
+
+- Operating system and build identity from the release you installed.
+- Surface and exact control used.
+- Steps leading to the problem.
+- Exact displayed error.
+- Expected and observed behavior.
+- Whether it persists after a normal quit and relaunch.
+- A screenshot with personal information and credentials removed.
+
+Never include API keys, passwords, authorization codes, private configuration or sensitive conversation content in a public report.
+
+## Current beta and updates
+
+Current preview build: **79558818**.
+
+- [Download installers and checksums](https://github.com/knightsky-cpu/Continuity-App/releases)
+- [Mac verification record](releases/79558818.json)
+- [Linux verification record](releases/79558818-linux.json)
+
+Updates are currently installed manually. Fully quit Continuity before replacing its application files, and retain existing data.
+
+Automatic updating and public conversation Add/Move/Remove between projects remain deferred. The broader memory and learning architecture continues to develop.
+
+This repository hosts public installers, release information and branding. Application source development is maintained separately; distributed installers contain readable application code.
 
 **The intelligence may change. Continuity remains.**
