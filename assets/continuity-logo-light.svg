@@ -8,5 +8,5 @@
     <mask id="lettering" maskUnits="userSpaceOnUse" x="0" y="640" width="866" height="228" style="mask-type:alpha"><use href="#logo-source" filter="url(#lettering-alpha)"/></mask>
   </defs>
   <use href="#logo-source" clip-path="url(#neurons)" filter="url(#clear-background)"/>
-  <rect y="640" width="866" height="228" fill="#1f2328" mask="url(#lettering)"/>
+  <rect y="640" width="866" height="228" fill="#ff3baf" mask="url(#lettering)"/>
 </svg>
